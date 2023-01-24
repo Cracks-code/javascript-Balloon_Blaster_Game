@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balloon Blaster - Home</title>
+    <style>
+        body
+        {
+            width: 100vw;
+            height: 100vh;
+            background: url('./src/Sprites/bg.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container
+        {
+            position: relative;
+            width: 70vw;
+            height: 24rem;
+            background: white url('./src/Sprites/bg.jpg');
+            border-radius: 10px;
+            box-shadow: 0 0 5px 1px cyan;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .gameName
+        {
+            font-size: 60px;
+            font-family: jokerman;
+            color : #121212;
+            text-align: center;
+        }
+
+        .startBtn
+        {
+            padding: 1rem 4rem;
+            font-size: 30px;
+            font-family: monospace;
+            font-variant: all-small-caps;
+            font-weight: bolder;
+            background: rgb(0, 132, 255);
+            border: 2.5px dashed white;
+            text-decoration: none;
+            color: white;
+            transition-duration: 0.5s;
+        }
+
+        .startBtn:hover
+        {
+            color: rgb(0, 132, 255);
+            background: transparent;
+            border-style: solid;
+        }
+
+        #img1
+        {
+            width: 180px;
+            position: absolute;
+            top: -5rem;
+            left: 0rem;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <section class="container">
+        <img src="./src/Sprites/balloon.png" id="img1" alt="...">
+        <h1 class="gameName">Balloon Blaster</h1>
+        <a href="./game.html" class="startBtn">Start Game With Fun</a>
+    </section>
+
+    <script type="module">
+        import Sound from './src/js/Sound.js'
+
+        var sound = new Sound('./src/Sounds/background.mp3', true)
+        sound.play()
+    </script>
+</body>
+</html>

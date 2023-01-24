@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balloon Blaster Game</title>
+    <style>
+        *
+        {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        canvas
+        {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: cyan url('./src/Sprites/bg.jpg');
+            background-position: 0 0;
+            background-size: cover;
+            background-repeat: no-repeat;
+            z-index: 0;
+        }
+
+        .Score_Detail_Container
+        {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: fit-content;
+            padding: 2rem;
+            /* background-color: white; */
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .Score_Detail_Container .score
+        {
+            display: flex;
+            align-items: center;
+        }
+
+        .Score_Detail_Container .score img
+        {
+            width: 60px;
+        }
+
+        .Score_Detail_Container .score #score-text
+        {
+            font-size: 30px;
+            font-family: monospace;
+            font-weight: bold;
+            font-variant: small-caps;
+        }
+
+        .Score_Detail_Container #miss_Balloon img
+        {
+            width: 50px;
+            margin: 5px;
+        }
+
+        .restart_Container
+        {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 60vw;
+            height: 16rem;
+            background-color: white;
+            transform: translateX(-50%) translateY(-50%);
+            border-radius: 10px;
+            box-shadow: 0 0 5px 1px cyan;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .restart_Container .buttons
+        {
+            width: 100%;
+            height: 5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .restart_Container .buttons .btn
+        {
+            padding: 1rem 4rem;
+            margin: 1rem;
+            border: 1px solid white;
+            background-color: rgb(0, 132, 255);
+            font-size: 20px;
+            font-family: sans-serif;
+            font-weight: bolder;
+            font-variant: all-small-caps;
+            color: white;
+            cursor: pointer;
+            transition-duration: 0.5s;
+        }
+
+        .restart_Container .buttons .btn:hover
+        {
+            border: 1px solid rgb(0, 132, 255);
+            background-color: white;
+            color: rgb(0, 132, 255);
+        }
+
+        .restart_Container #res_score
+        {
+            font-family: monospace;
+            font-weight: bolder;
+            font-variant: all-small-caps;
+            font-size: 45px;
+            margin-bottom: 2rem;
+            color: #121212;
+        }
+    </style>
+</head>
+<body>
+    <canvas></canvas>
+
+    <div class="Score_Detail_Container">
+        <div class="score">
+            <img src="./src/Sprites/cracked_balloon.png" alt="..">
+            <h1 id="score-text">: 0</h1>
+        </div>
+        <div id="miss_Balloon">
+            <img src="./src/Sprites/balloon1.png" alt="...">
+            <img src="./src/Sprites/balloon1.png" alt="...">
+            <img src="./src/Sprites/balloon1.png" alt="...">
+            <img src="./src/Sprites/balloon1.png" alt="...">
+            <img src="./src/Sprites/balloon1.png" alt="...">
+        </div>
+    </div>
+
+    <div class="restart_Container">
+        <h1 id="res_score">Your Score Is 5</h1>
+        <div class="buttons">
+            <a href="./index.html" class="btn" id="home">Home</a>
+            <button onclick="restart_Game()" class="btn" id="restart">Restart</button>
+        </div>
+    </div>
+
+    <img src="./src/Sprites/distroyer.png" alt="distroyer" id="distroyer" style="display: none;">
+    <img src="./src/Sprites/balloon.png" alt="balloon" id="balloon" style="display: none;">
+
+    <script type="module" src="./src/js/Game.js"></script>
+</body>
+</html>
